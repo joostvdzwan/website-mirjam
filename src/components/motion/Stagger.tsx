@@ -1,5 +1,5 @@
-'use client';
-import { motion, Variants } from 'framer-motion';
+import React from 'react';
+import { motion, Variants, useInView } from 'framer-motion';
 
 interface StaggerProps {
   children: React.ReactNode;
@@ -22,17 +22,22 @@ const itemVars: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
 
-export const StaggerContainer = ({ children, className }: StaggerProps) => (
-  <motion.div
-    variants={containerVars}
-    initial="hidden"
-    whileInView="show"
-    viewport={{ once: true, amount: 0.1 }}
-    className={className}
-  >
-    {children}
-  </motion.div>
-);
+export const StaggerContainer = ({ children, className }: StaggerProps) => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0, margin: "0px 0px -50px 0px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={containerVars}
+      initial="hidden"
+      animate={isInView ? "show" : "hidden"}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+};
 
 export const StaggerItem = ({ children, className }: { children: React.ReactNode; className?: string }) => (
   <motion.div variants={itemVars} className={className}>

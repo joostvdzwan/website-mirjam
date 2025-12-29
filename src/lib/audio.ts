@@ -1,4 +1,5 @@
-import { generateSpeech } from '@/app/actions';
+
+import { generateVisionAudioAction } from '@/app/actions';
 
 export const pcmToWav = (base64: string, rate: number) => {
   const pcm = new Uint8Array(atob(base64).split("").map(c => c.charCodeAt(0)));
@@ -17,8 +18,8 @@ export const playVisionAudio = async (isPlaying: boolean, setIsPlaying: (v: bool
   if (isPlaying) return;
   setIsPlaying(true);
   try {
-    const text = "Ik loop een stukje met je mee om overzicht te brengen in de chaos, zodat je daarna zelf weer met vertrouwen verder kunt op je eigen pad.";
-    const pcmData = await generateSpeech(`Zeg warm en rustig: ${text}`);
+    // The text is now managed in the PROMPTS service
+    const pcmData = await generateVisionAudioAction();
     if (pcmData) {
       const audio = new Audio(URL.createObjectURL(pcmToWav(pcmData, 24000)));
       audio.onended = () => setIsPlaying(false);

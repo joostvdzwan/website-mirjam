@@ -11,9 +11,9 @@ export default function HomePage() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <div className="h-dvh flex flex-col justify-center items-center text-center px-6">
+    <div className="h-dvh flex flex-col justify-center items-center text-center px-6 max-md:px-4">
       <div className="max-w-3xl flex flex-col items-center max-sm:items-start">
-        <Reveal delay={0.1}>
+        <Reveal delay={0.1} priority={true}>
           <span className="text-[14px] max-sm:text-[12px] max-sm:text-left uppercase tracking-[0.4em] text-[#6B705C] mb-8 max-sm:mb-6 block font-semibold">Onafhankelijk & Psychologisch</span>
         </Reveal>
         

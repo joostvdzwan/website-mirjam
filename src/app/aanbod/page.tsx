@@ -18,11 +18,26 @@ export default function AanbodPage() {
             <CheckCircle2 size={16} /> Begeleidingsgebied (Wel)
           </h3>
           <ul className="space-y-4 text-sm opacity-80 leading-relaxed">
-            <li>• Kortdurende psychologische coaching (max. 7 sessies)</li>
-            <li>• Narratieve psychosociale begeleiding</li>
-            <li>• Verheldering van complexe levenssituaties</li>
-            <li>• Ondersteuning bij ouderschap en identiteit</li>
-            <li>• Psycho-educatie en praktische handvatten</li>
+            <li className="flex gap-3 items-start">
+              <div className="mt-[7px] min-w-[6px] h-[6px] rounded-full bg-[#6B705C] shrink-0" />
+              <span>Kortdurende psychologische coaching (max. 7 sessies)</span>
+            </li>
+            <li className="flex gap-3 items-start">
+              <div className="mt-[7px] min-w-[6px] h-[6px] rounded-full bg-[#6B705C] shrink-0" />
+              <span>Narratieve psychosociale begeleiding</span>
+            </li>
+            <li className="flex gap-3 items-start">
+              <div className="mt-[7px] min-w-[6px] h-[6px] rounded-full bg-[#6B705C] shrink-0" />
+              <span>Verheldering van complexe levenssituaties</span>
+            </li>
+            <li className="flex gap-3 items-start">
+              <div className="mt-[7px] min-w-[6px] h-[6px] rounded-full bg-[#6B705C] shrink-0" />
+              <span>Ondersteuning bij ouderschap en identiteit</span>
+            </li>
+            <li className="flex gap-3 items-start">
+              <div className="mt-[7px] min-w-[6px] h-[6px] rounded-full bg-[#6B705C] shrink-0" />
+              <span>Psycho-educatie en praktische handvatten</span>
+            </li>
           </ul>
         </div>
         <div>
@@ -30,11 +45,26 @@ export default function AanbodPage() {
             <AlertCircle size={16} /> Buiten bereik (Niet)
           </h3>
           <ul className="space-y-4 text-sm opacity-60 leading-relaxed italic">
-            <li>• Geen diagnostiek (vaststellen van stoornissen)</li>
-            <li>• Geen behandeling van zware psychiatrie</li>
-            <li>• Geen crisisopvang of 24-uurs bereikbaarheid</li>
-            <li>• Geen verplichte trajecten (Jeugdwet/Gecertificeerde Instellingen)</li>
-            <li>• Geen doorverwijzing voor vergoede zorg (dat gaat via de huisarts)</li>
+            <li className="flex gap-3 items-start">
+              <div className="mt-[7px] min-w-[6px] h-[6px] rounded-full bg-red-900/40 shrink-0" />
+              <span>Geen diagnostiek (vaststellen van stoornissen)</span>
+            </li>
+            <li className="flex gap-3 items-start">
+              <div className="mt-[7px] min-w-[6px] h-[6px] rounded-full bg-red-900/40 shrink-0" />
+              <span>Geen behandeling van zware psychiatrie</span>
+            </li>
+            <li className="flex gap-3 items-start">
+              <div className="mt-[7px] min-w-[6px] h-[6px] rounded-full bg-red-900/40 shrink-0" />
+              <span>Geen crisisopvang of 24-uurs bereikbaarheid</span>
+            </li>
+            <li className="flex gap-3 items-start">
+              <div className="mt-[7px] min-w-[6px] h-[6px] rounded-full bg-red-900/40 shrink-0" />
+              <span>Geen verplichte trajecten (Jeugdwet/Gecertificeerde Instellingen)</span>
+            </li>
+            <li className="flex gap-3 items-start">
+              <div className="mt-[7px] min-w-[6px] h-[6px] rounded-full bg-red-900/40 shrink-0" />
+              <span>Geen doorverwijzing voor vergoede zorg (dat gaat via de huisarts)</span>
+            </li>
           </ul>
         </div>
       </div>

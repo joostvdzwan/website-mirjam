@@ -8,11 +8,12 @@ interface RevealProps {
   delay?: number;
   direction?: 'up' | 'down' | 'left' | 'right' | 'none';
   className?: string;
+  priority?: boolean;
 }
 
-export const Reveal = ({ children, width = "fit-content", delay = 0, direction = 'up', className }: RevealProps) => {
+export const Reveal = ({ children, width = "fit-content", delay = 0, direction = 'up', className, priority = false }: RevealProps) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: "some" });
+  const isInView = useInView(ref, { once: true, amount: 0, margin: "0px 0px -50px 0px" });
   const [allowOverflow, setAllowOverflow] = useState(false);
 
   const getHiddenVariant = (): Variant => {
@@ -25,6 +26,8 @@ export const Reveal = ({ children, width = "fit-content", delay = 0, direction =
     }
   };
 
+  const shouldShow = priority || isInView;
+
   return (
     <div ref={ref} style={{ position: "relative", width, overflow: allowOverflow ? "visible" : "hidden" }} className={className}>
       <motion.div
@@ -33,7 +36,7 @@ export const Reveal = ({ children, width = "fit-content", delay = 0, direction =
           visible: { opacity: 1, y: 0, x: 0 },
         }}
         initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        animate={shouldShow ? "visible" : "hidden"}
         transition={{ duration: 0.8, delay, ease: [0.17, 0.55, 0.55, 1] }}
         onAnimationComplete={() => setAllowOverflow(true)}
       >
