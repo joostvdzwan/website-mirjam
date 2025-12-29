@@ -14,10 +14,10 @@ export default function HomePage() {
     <div className="h-dvh flex flex-col justify-center items-center text-center px-6">
       <div className="max-w-3xl flex flex-col items-center max-sm:items-start">
         <Reveal delay={0.1}>
-          <span className="text-[14px] max-sm:text-[12px] uppercase tracking-[0.4em] text-[#6B705C] mb-8 block font-semibold">Onafhankelijk & Psychologisch</span>
+          <span className="text-[14px] max-sm:text-[12px] max-sm:text-left uppercase tracking-[0.4em] text-[#6B705C] mb-8 max-sm:mb-6 block font-semibold">Onafhankelijk & Psychologisch</span>
         </Reveal>
         
-        <div className="mb-10 text-4xl md:text-6xl font-serif leading-[1.1] text-[#333D3B] flex flex-col items-center max-sm:items-start">
+        <div className="mb-10 max-sm:mb-6 text-4xl md:text-6xl font-serif leading-[1.1] text-[#333D3B] flex flex-col items-center max-sm:items-start">
              <TextReveal text="Ik loop een stukje mee om" delay={0.2} className="justify-center max-sm:justify-start" />
              <TextReveal text="overzicht te brengen." delay={0.6} className="italic font-light justify-center max-sm:justify-start" />
         </div>
