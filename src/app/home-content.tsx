@@ -11,15 +11,16 @@ export default function HomePage() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <div className="h-dvh flex flex-col justify-center items-center text-center px-6 max-md:px-4">
+    <div className="py-32 max-md:py-24 flex flex-col justify-center items-center text-center px-6 max-md:px-4">
       <div className="max-w-3xl flex flex-col items-center max-sm:items-start">
         <Reveal delay={0.1} priority={true}>
           <span className="text-[14px] max-sm:text-[12px] max-sm:text-left uppercase tracking-[0.4em] text-[#6B705C] mb-8 max-sm:mb-6 block font-semibold">Onafhankelijk & Psychologisch</span>
         </Reveal>
-        
-        <div className="mb-10 max-sm:mb-6 text-4xl md:text-6xl font-serif leading-[1.1] text-[#333D3B] flex flex-col items-center max-sm:items-start">
-             <TextReveal text="Ik loop een stukje mee om" delay={0.2} className="justify-center max-sm:justify-start" />
-             <TextReveal text="overzicht te brengen." delay={0.6} className="italic font-light justify-center max-sm:justify-start" />
+
+        <div className="mb-10 max-sm:mb-6 text-4xl md:text-6xl font-serif leading-[1.1] text-[#333D3B] text-center max-sm:text-left">
+          <TextReveal text="Ik loop een stukje mee om" delay={0.2} />
+          <TextReveal text="overzicht" delay={0.6} className="italic font-light" />
+          <TextReveal text="te brengen." delay={0.8} className="font-light" />
         </div>
 
         <Reveal delay={0.8}>
@@ -33,9 +34,9 @@ export default function HomePage() {
             <Link href="/werkwijze" className="px-10 py-4 bg-[#6B705C] text-white text-xs uppercase tracking-widest font-bold rounded-sm transition-all hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl">
               Mijn werkwijze
             </Link>
-            <button 
-              onClick={() => playVisionAudio(isPlaying, setIsPlaying)} 
-              disabled={isPlaying} 
+            <button
+              onClick={() => playVisionAudio(isPlaying, setIsPlaying)}
+              disabled={isPlaying}
               className="flex items-center gap-2 px-10 py-4 border border-[#6B705C]/30 text-[#6B705C] text-xs uppercase tracking-widest font-bold rounded-sm hover:bg-[#6B705C]/5 transition-all hover:scale-105 active:scale-95"
             >
               {isPlaying ? <Loader2 size={16} className="animate-spin" /> : <Volume2 size={16} />}

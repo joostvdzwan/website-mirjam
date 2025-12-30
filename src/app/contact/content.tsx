@@ -16,56 +16,56 @@ export default function ContactPage() {
     if (!message) return;
     setIsHelping(true);
     try {
-        const enrichedMessage = await verifyHelpRequestAction(message);
-        setMessage(enrichedMessage);
-        setAiUsed(true);
+      const enrichedMessage = await verifyHelpRequestAction(message);
+      setMessage(enrichedMessage);
+      setAiUsed(true);
     } catch (e) {
-        console.error(e);
+      console.error(e);
     } finally {
-        setIsHelping(false);
+      setIsHelping(false);
     }
   };
 
   return (
-    <div className="py-32 px-6 max-w-5xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-24">
+    <div className="py-32 max-md:py-24 px-6 max-w-5xl mx-auto">
+      <div className="grid lg:grid-cols-2 gap-24 max-md:gap-12">
         <Reveal>
           <div>
-            <h2 className="text-4xl font-serif mb-8 text-[#333D3B]">Contact</h2>
-            <p className="opacity-70 mb-12 leading-relaxed text-lg">Stuur een bericht voor een kosteloze kennismaking. Ik reageer doorgaans binnen 48 uur.</p>
-            <div className="space-y-6 text-sm">
+            <h2 className="text-4xl max-md:text-3xl font-serif mb-8 max-md:mb-4 text-[#333D3B]">Contact</h2>
+            <p className="opacity-70 mb-12 max-md:mb-6 leading-relaxed text-lg max-md:text-base">Stuur een bericht voor een kosteloze kennismaking. Ik reageer doorgaans binnen 48 uur.</p>
+            <div className="space-y-6 max-md:space-y-4 text-sm">
               <div className="flex gap-4 items-center"><Mail size={18} /> mirjam@deleeuw.nl</div>
               <div className="flex gap-4 items-center"><MapPin size={18} /> Regio Leiden / Online</div>
             </div>
           </div>
         </Reveal>
-        
+
         <Reveal delay={0.2} direction="left">
-          <div className="bg-white p-10 border border-[#A5A58D]/30 shadow-xl transition-shadow duration-500 hover:shadow-2xl relative">
+          <div className="bg-white p-10 max-md:p-6 border border-[#A5A58D]/30 shadow-xl transition-shadow duration-500 hover:shadow-2xl relative">
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="space-y-6">
-                 <Input placeholder="Naam" variant="light" className="border-b border-[#A5A58D]/40 border-t-0 border-x-0 rounded-none px-0 h-10" />
-                 <Input placeholder="E-mail" variant="light" className="border-b border-[#A5A58D]/40 border-t-0 border-x-0 rounded-none px-0 h-10" />
+                <Input placeholder="Naam" variant="light" className="border-b border-[#A5A58D]/40 border-t-0 border-x-0 rounded-none px-0 h-10" />
+                <Input placeholder="E-mail" variant="light" className="border-b border-[#A5A58D]/40 border-t-0 border-x-0 rounded-none px-0 h-10" />
               </div>
-              
+
               <div className="relative mt-6">
-                <textarea 
-                    rows={6} 
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    className="w-full border border-[#A5A58D]/20 p-4 focus:outline-none focus:border-[#6B705C] bg-[#F9F7F2]/50 text-sm transition-colors pr-10" 
-                    placeholder="Wat houdt je momenteel bezig? (Typ kort je gedachten, klik dan op het sterretje om te verhelderen)"
+                <textarea
+                  rows={6}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="w-full border border-[#A5A58D]/20 p-4 focus:outline-none focus:border-[#6B705C] bg-[#F9F7F2]/50 text-sm transition-colors pr-10"
+                  placeholder="Wat houdt je momenteel bezig? (Typ kort je gedachten, klik dan op het sterretje om te verhelderen)"
                 ></textarea>
                 {!aiUsed && (
-                    <button 
-                        type="button"
-                        onClick={handleHelp}
-                        disabled={isHelping || message.length < 5}
-                        className="absolute top-2 right-2 p-2 text-[#6B705C] hover:text-[#333D3B] disabled:opacity-30 transition-colors"
-                        title="Help mij focussen (AI)"
-                    >
-                        {isHelping ? <Loader2 size={18} className="animate-spin" /> : <Sparkles size={18} />}
-                    </button>
+                  <button
+                    type="button"
+                    onClick={handleHelp}
+                    disabled={isHelping || message.length < 5}
+                    className="absolute top-2 right-2 p-2 text-[#6B705C] hover:text-[#333D3B] disabled:opacity-30 transition-colors"
+                    title="Help mij focussen (AI)"
+                  >
+                    {isHelping ? <Loader2 size={18} className="animate-spin" /> : <Sparkles size={18} />}
+                  </button>
                 )}
               </div>
 
